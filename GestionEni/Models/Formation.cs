@@ -6,44 +6,33 @@ namespace GestionEni.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Personne")]
-    public partial class Personne
+    [Table("Formation")]
+    public partial class Formation
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Personne()
+        public Formation()
         {
             Personne_Formation = new HashSet<Personne_Formation>();
         }
 
         [Key]
-        public int IdPersonne { get; set; }
+        public int IdFormation { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string username { get; set; }
+        [StringLength(200)]
+        public string libelle { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string password { get; set; }
-
-        [StringLength(50)]
-        public string lastname { get; set; }
-
-        [StringLength(50)]
-        public string firstname { get; set; }
-
-        [StringLength(150)]
-        public string email { get; set; }
-
-        public int Role { get; set; }
+        public string description { get; set; }
 
         public int? Cursus { get; set; }
 
+        public int Site { get; set; }
+
         public virtual Cursus Cursus1 { get; set; }
+
+        public virtual Site Site1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Personne_Formation> Personne_Formation { get; set; }
-
-        public virtual Role Role1 { get; set; }
     }
 }
