@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css" />
+
+    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/Content/materialize.min.css")
+</head>
+<body class="grey lighten-2">
+    @Html.Partial("Menu")
+    
+    @RenderBody()
+    @Html.Partial("Footer")
+    @Scripts.Render("~/Scripts/jquery-1.9.1.min.js")
+    @Scripts.Render("~/Scripts/materialize.min.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
