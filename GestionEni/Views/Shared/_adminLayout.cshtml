@@ -8,20 +8,28 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css" />
 
-    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/Content/admin.css")
     @Styles.Render("~/Content/materialize.min.css")
 </head>
 <body class="grey lighten-2">
-    @Html.Partial("Menu")
-    
-    @RenderBody()
-    @Html.Partial("Footer")
+    @Html.Partial("header_admin")
+    <div class="row">
+        <div class="col s3">
+            @Html.Partial("NavBar")
+        </div>
+        <div class="col s9">
+            @RenderBody()
+        </div>
+    </div>
+        
     @Scripts.Render("~/Scripts/jquery-1.9.1.min.js")
     @Scripts.Render("~/Scripts/materialize.min.js")
     @RenderSection("scripts", required: false)
     <script>
         $(function() {
-            $(".button-collapse").sideNav();
+            $(document).ready(function () {
+                $('select').material_select();
+            });
         });
 
         

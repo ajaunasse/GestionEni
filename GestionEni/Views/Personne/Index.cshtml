@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Personne";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+        <h4 class="header">Gestion des utilisateurs 
+             <a href="@Url.RouteUrl("create_personne")" class="btn-floating btn waves-effect waves-light red right"><i class="material-icons">add</i></a>
+           </h4>
+        <hr />
+        
+          <table>
+                <thead>
+                  <tr>
+                      <th data-field="id">#</th>
+                      <th data-field="name">Utilisateur</th>
+                      <th data-field="price">Nom complet</th>       
+                      <th data-field="price">Email</th>
+                      <th data-field="price">Action</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>jdoe</td>
+                    <td>John Doe</td>
+                    <td>jdoe@mail.fr</td>
+                    <td>   
+                       <a class="btn-floating btn blue">
+                           <i class="material-icons">search</i>
+                        </a> 
+                        <a class="btn-floating btn green">
+                            <i class="large material-icons">mode_edit</i>
+                        </a>
+                        <a class="btn-floating btn red">
+                            <i class="material-icons">delete</i>
+                        </a>
+
+                    </td>
+
+                  </tr>
+                </tbody>
+        </table>

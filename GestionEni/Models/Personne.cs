@@ -4,12 +4,11 @@ namespace GestionEni.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+    using System.Data.Entity;
 
     [Table("Personne")]
     public partial class Personne
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Personne()
         {
             Personne_Formation = new HashSet<Personne_Formation>();
@@ -41,9 +40,8 @@ namespace GestionEni.Models
 
         public virtual Cursus Cursus1 { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Personne_Formation> Personne_Formation { get; set; }
-
+         
         public virtual Role Role1 { get; set; }
     }
 }
