@@ -15,7 +15,7 @@ namespace GestionEni.Controllers
         // GET: /Personne/
         private EFPersonneRepository repository;
 
-        public ViewResult Index()
+        public ActionResult Index()
         {
             repository = new EFPersonneRepository();
             IEnumerable<Personne> Personnes = repository.Personnes;

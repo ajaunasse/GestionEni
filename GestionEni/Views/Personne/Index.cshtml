@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<GestionEni.Models.Personne>
+
+@{
     ViewBag.Title = "Personne";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
@@ -20,11 +22,13 @@
                 </thead>
 
                 <tbody>
+@foreach(GestionEni.Models.Personne p in Model)
+{
                   <tr>
-                    <td>1</td>
-                    <td>jdoe</td>
-                    <td>John Doe</td>
-                    <td>jdoe@mail.fr</td>
+                    <td>@p.IdPersonne</td>
+                    <td>@p.username</td>
+                    <td>@p.firstname @p.lastname</td>
+                    <td>@p.email</td>
                     <td>   
                        <a class="btn-floating btn blue">
                            <i class="material-icons">search</i>
@@ -39,5 +43,6 @@
                     </td>
 
                   </tr>
+}
                 </tbody>
         </table>

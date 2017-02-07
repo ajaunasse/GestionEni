@@ -13,7 +13,7 @@ namespace GestionEni
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(null, "{controller}/{action}");
+            //routes.MapRoute(null, "{controller}/{action}");
 
             routes.MapRoute(
                 name: "Home",
