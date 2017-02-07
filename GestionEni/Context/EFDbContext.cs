@@ -1,23 +1,24 @@
-namespace GestionEni.Models
+namespace GestionEni.Context
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using GestionEni.Models;
 
-    public partial class Model : DbContext
+    public partial class EFDbContext : DbContext
     {
-        public Model()
+        public EFDbContext()
             : base("name=ModelGestionEni")
         {
         }
 
-        public virtual DbSet<Cursus> Cursus { get; set; }
-        public virtual DbSet<Formation> Formation { get; set; }
-        public virtual DbSet<Personne> Personne { get; set; }
-        public virtual DbSet<Personne_Formation> Personne_Formation { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<Site> Site { get; set; }
+        public virtual DbSet<Cursus> Cursuss { get; set; }
+        public virtual DbSet<Formation> Formations { get; set; }
+        public virtual DbSet<Personne> Personnes { get; set; }
+        public virtual DbSet<Personne_Formation> Personne_Formations { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Site> Sites { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

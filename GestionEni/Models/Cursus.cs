@@ -8,7 +8,6 @@ namespace GestionEni.Models
 
     public partial class Cursus
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cursus()
         {
             Formation = new HashSet<Formation>();
@@ -25,10 +24,8 @@ namespace GestionEni.Models
         [StringLength(50)]
         public string description { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Formation> Formation { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Personne> Personne { get; set; }
     }
 }

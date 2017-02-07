@@ -13,6 +13,8 @@ namespace GestionEni
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(null, "{controller}/{action}");
+
             routes.MapRoute(
                 name: "Home",
                 url: "",
@@ -23,6 +25,8 @@ namespace GestionEni
                 url: "Login",
                 defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
             );
+
+            
         }
     }
 }
