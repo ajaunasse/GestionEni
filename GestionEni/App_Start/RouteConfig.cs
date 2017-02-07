@@ -26,7 +26,16 @@ namespace GestionEni
                 defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
             );
 
-            
+            routes.MapRoute(
+                name: "list_personne",
+                url: "Admin/Personne",
+                defaults: new { controller = "Personne", action = "Index", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "create_personne",
+                url: "Admin/Personne/Create",
+                defaults: new { controller = "Personne", action = "Create", id = UrlParameter.Optional }
+            );
         }
     }
 }
