@@ -17,11 +17,11 @@ namespace GestionEni.Models
         [Key]
         public int IdPersonne { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Entrez votre Nom d'utilisateur")]
         [StringLength(50)]
         public string username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Entrez un mot de passe")]
         [StringLength(50)]
         public string password { get; set; }
 
@@ -32,6 +32,8 @@ namespace GestionEni.Models
         public string firstname { get; set; }
 
         [StringLength(150)]
+        [Required(ErrorMessage = "Entrez votre Adresse Mail")]
+        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Rentrez un mail valide")]
         public string email { get; set; }
 
         public int Role { get; set; }

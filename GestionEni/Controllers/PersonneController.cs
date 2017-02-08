@@ -13,11 +13,11 @@ namespace GestionEni.Controllers
     {
         //
         // GET: /Personne/
-        private EFPersonneRepository repository;
+        private EFPersonneRepository repository = new EFPersonneRepository();
+        EFRoleRepository repoRole = new EFRoleRepository();
 
         public ActionResult Index()
         {
-            repository = new EFPersonneRepository();
             IEnumerable<Personne> Personnes = repository.Personnes;
             return View(Personnes);
         }
@@ -61,25 +61,37 @@ namespace GestionEni.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            
+
+            Personne personne = repository.Personnes
+                .FirstOrDefault(p => p.IdPersonne == id);
+
+            EditPersonneViewModel epVm = new EditPersonneViewModel();
+            epVm.Personne = personne;
+            
+            epVm.Roles = repoRole.Roles;
+            return View(epVm);
         }
 
         //
         // POST: /Personne/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ViewResult Edit(EditPersonneViewModel editpersonne)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            int i = 0;
+                if (ModelState.IsValid)
+                {
+                    
+                    /*repository.SavePersonne();
+                    TempData["message"] = string.Format("{0} a été sauvegardé", product.Name);*/
+                    return View(editpersonne);
+                }
+                else
+                {
+                    editpersonne.Roles = repoRole.Roles;
+                    return View(editpersonne);
+                }
         }
 
         //

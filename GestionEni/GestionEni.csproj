@@ -123,12 +123,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IRoleRepository.cs" />
     <Compile Include="Abstract\IPersonneRepository.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Context\EFRoleRepository.cs" />
     <Compile Include="Context\EFPersonneRepository.cs" />
     <Compile Include="Controllers\PersonneController.cs" />
     <Compile Include="fonts\WebApiConfig.cs" />
@@ -138,6 +140,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cursus.cs" />
+    <Compile Include="Models\EditPersonneViewModel.cs" />
     <Compile Include="Models\Formation.cs" />
     <Compile Include="Context\EFDbContext.cs" />
     <Compile Include="Models\Personne.cs" />
@@ -264,6 +267,7 @@
     <Content Include="Views\Personne\Index.cshtml" />
     <Content Include="Views\Shared\header_admin.cshtml" />
     <Content Include="Views\Shared\_adminLayout.cshtml" />
+    <Content Include="Views\Personne\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

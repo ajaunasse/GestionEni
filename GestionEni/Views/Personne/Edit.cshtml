@@ -1,0 +1,55 @@
+﻿@model GestionEni.Models.EditPersonneViewModel
+
+@{
+    ViewBag.Title = "EditPersonne";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h4 class="header">Modification Informations</h4>
+<hr />
+  <div class="row">
+    @using (Html.BeginForm())
+{
+      <div class="alert alert-danger">@Html.ValidationSummary()</div>
+      <div class="row">
+        <div class="input-field col s6">
+            @Html.TextBoxFor(x => x.Personne.firstname, new { @class = "validate"})
+          <label for="first_name">Prénom</label>
+        </div>
+        <div class="input-field col s6">
+            @Html.TextBoxFor(x => x.Personne.lastname, new { @class = "validate"})
+          <label for="last_name">Nom</label>
+        </div>
+      </div>
+        <div class="row">
+        <div class="input-field col s12">
+            @Html.TextBoxFor(x => x.Personne.username, new { @class = "validate"})
+          <label for="username">Nom utilisateur</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+            @Html.TextBoxFor(x => x.Personne.password, new { @class = "validate"})
+          <label for="password">Mot de passe</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+            @Html.TextBoxFor(x => x.Personne.email, new { @class = "validate"})
+          <label for="email">Email</label>
+        </div>
+      </div>
+        <div class="row">
+              <div class="input-field col s12">
+                  @Html.DropDownListFor(x => x.Personne.Role, Model.SelectList)
+                <label>Rôle</label>
+              </div>
+
+        </div>
+          <button class="btn waves-effect waves-light green" type="submit" name="action">
+              <i class="material-icons right">send</i>
+              Modifier
+        </button>
+    }  
+
+  </div>

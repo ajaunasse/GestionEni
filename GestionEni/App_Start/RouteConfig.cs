@@ -36,6 +36,12 @@ namespace GestionEni
                 url: "Admin/Personne/Create",
                 defaults: new { controller = "Personne", action = "Create", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "edit_personne",
+                url: "Admin/Personne/Edit/{id}",
+                defaults: new { controller = "Personne", action = "Edit", id = 2}
+            );
         }
     }
 }
