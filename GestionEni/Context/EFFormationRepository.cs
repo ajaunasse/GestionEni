@@ -30,9 +30,10 @@ namespace GestionEni.Context
                 {
                     dbEntry.libelle = formation.libelle;
                     dbEntry.description = formation.description;
+                    dbEntry.Cursus1 = formation.Cursus1;
                     dbEntry.Site1 = formation.Site1;
-                    dbEntry.Cursus1 = formation.Cursus1;                    
- 
+                    dbEntry.Cursus = formation.Cursus;
+                    dbEntry.Site = formation.Site;
                 }
             }
             context.SaveChanges();

@@ -5,7 +5,7 @@
 }
 
         <h4 class="header">Gestion des formation
-             <a href="@Url.RouteUrl("create_personne")" class="btn-floating btn waves-effect waves-light red right"><i class="material-icons">add</i></a>
+             <a href="@Url.RouteUrl("create_formation")" class="btn-floating btn waves-effect waves-light red right"><i class="material-icons">add</i></a>
            </h4>
         <hr />
         
@@ -16,18 +16,22 @@
                       <th>libelle</th>
                       <th>Site</th>
                       <th>Cursus</th>
+                      <th>Action</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                     @foreach (GestionEni.Models.Formation f in Model)
+                    @if (Model != null &&  Model.Count() > 0)
+                    {
+                     foreach (GestionEni.Models.Formation f in Model)
                      {
                   <tr>
+                    <td>@f.IdFormation</td>
                     <td>@f.libelle</td>
                     <td>@f.Site1.ville</td>
                     <td>@f.Cursus1.libelle</td>
                     <td>   
-                       <a class="btn-floating btn blue">
+                       <a class="btn-floating btn blue" href="@Url.RouteUrl("detail_formation", new { id = @f.IdFormation })">
                            <i class="material-icons">search</i>
                         </a> 
                         <a class="btn-floating btn green">
@@ -41,5 +45,9 @@
 
                   </tr>
                      }
+                    } else {
+                        <tr><td colspan="4"> Aucun résultat</td>  </tr>
+                       
+                    }
                 </tbody>
         </table>

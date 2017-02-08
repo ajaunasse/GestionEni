@@ -10,6 +10,6 @@ namespace GestionEni.Abstract
     {
         IQueryable<Formation> Formations { get; }
         void SaveFormation(Formation formation);
-        Formation DeleteFormation(int formationId);
+        Formation DeleteFormation(int formationID);
     }
 }

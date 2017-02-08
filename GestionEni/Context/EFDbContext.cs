@@ -12,7 +12,7 @@ namespace GestionEni.Models
         {
         }
 
-        public virtual DbSet<Cursus> Cursuss { get; set; }
+        public virtual DbSet<Cursus> Cursus { get; set; }
         public virtual DbSet<Formation> Formations { get; set; }
         public virtual DbSet<Personne> Personnes { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
