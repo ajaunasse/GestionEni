@@ -13,7 +13,7 @@ namespace GestionEni
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //routes.MapRoute(null, "{controller}/{action}");
+            routes.MapRoute(null, "{controller}/{action}");
 
             routes.MapRoute(
                 name: "Home",
@@ -21,14 +21,29 @@ namespace GestionEni
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
             routes.MapRoute(
+                name: "Planning",
+                url: "Admin/Planning/Index",
+                defaults: new { controller = "Planning", action = "Index" }
+            );
+            routes.MapRoute(
                 name: "Login", 
                 url: "Login",
                 defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "Logout",
+                url: "Logout",
+                defaults: new { controller = "Login", action = "Logout", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "Admin",
+                url: "Admin/Index",
+                defaults: new { controller = "Admin", action = "Index" }
+            );
 
             routes.MapRoute(
                 name: "list_personne",
-                url: "Admin/Personne",
+                url: "Admin/Personne/Index",
                 defaults: new { controller = "Personne", action = "Index", id = UrlParameter.Optional }
             );
             routes.MapRoute(
@@ -36,7 +51,6 @@ namespace GestionEni
                 url: "Admin/Personne/Create",
                 defaults: new { controller = "Personne", action = "Create", id = UrlParameter.Optional }
             );
-
             routes.MapRoute(
                 name: "edit_personne",
                 url: "Admin/Personne/Edit/{id}",

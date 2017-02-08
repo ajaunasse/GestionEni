@@ -1,12 +1,10 @@
-﻿@model IEnumerable<GestionEni.Models.Personne>
-
-
+﻿@model IEnumerable<GestionEni.Models.Formation>
 @{
-    ViewBag.Title = "Personne";
+    ViewBag.Title = "Formation";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
 
-        <h4 class="header">Gestion des utilisateurs 
+        <h4 class="header">Gestion des formation
              <a href="@Url.RouteUrl("create_personne")" class="btn-floating btn waves-effect waves-light red right"><i class="material-icons">add</i></a>
            </h4>
         <hr />
@@ -15,22 +13,19 @@
                 <thead>
                   <tr>
                       <th>#</th>
-                      <th>Utilisateur</th>
-                      <th>Nom complet</th>       
-                      <th>Email</th>
-                      <th>Rôle</th>
-                      <th>Action</th>
+                      <th>libelle</th>
+                      <th>Site</th>
+                      <th>Cursus</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                     @foreach(GestionEni.Models.Personne p in Model){
+                     @foreach (GestionEni.Models.Formation f in Model)
+                     {
                   <tr>
-                    <td>@p.IdPersonne</td>
-                    <td>@p.username</td>
-                    <td>@p.lastname @p.firstname</td>
-                    <td>@p.email</td>
-                    <td>@p.Role1.libelle</td>
+                    <td>@f.libelle</td>
+                    <td>@f.Site1.ville</td>
+                    <td>@f.Cursus1.libelle</td>
                     <td>   
                        <a class="btn-floating btn blue">
                            <i class="material-icons">search</i>
@@ -45,7 +40,6 @@
                     </td>
 
                   </tr>
-            }
-
+                     }
                 </tbody>
         </table>

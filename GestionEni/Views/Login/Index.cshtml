@@ -2,28 +2,47 @@
   <div class="row">
     <div class="col s12 m6 offset-m3">
 
-        <h4> Connexion </h4>
+        @if (TempData["message"] != null)
+        {
+            
+        <div id="message">
+            @TempData["message"]
+
+        </div>
+        }
+       
       <div class="card">
         <div class="card-content">
-          
-          <form>
+           <h4 class="center"><i class="material-icons">lock_outline</i>  Connexion </h4>
+            <hr />
+       
+          @using (Html.BeginForm("Authentification", "Login", FormMethod.Post))
+            {
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Pseudo de l'application" id="firstname" type="text" class="validate">
-                <label for="firstname" class="active"> Login</label>
+                  <i class="material-icons prefix">account_circle</i>
+                <input placeholder="Pseudo" id="firstname" type="text" class="validate" name="login">
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input placeholder="Mot de passe" id="lastname" type="password" class="validate">
-                <label for="lastname" class="active">Password</label>
+                  <i class="material-icons prefix">lock_open</i>
+                <input placeholder="Mot de passe" id="lastname" type="password" name="password" class="validate">
               </div>
             </div>
-          </form>
-        </div>
+                <p>
+                    <i class="material-icons prefix">perm_identity</i>
+                    <input class="with-gap" name="stagiaire" type="radio" id="radioStagiaire" />
+                    <label for="radioStagiaire">Stagiaire</label>
+                    <input class="with-gap" name="formateur" type="radio" id="radioFormateur" />
+                    <label for="radioFormateur">Formateur</label>
+                </p>
         <div class="card-action">
           <input type="submit" class="btn indigo" value="Se connecter">
         </div>
+          }
+        </div>
+
       </div>
     </div>
       </div>
