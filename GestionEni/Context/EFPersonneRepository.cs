@@ -33,6 +33,9 @@ namespace GestionEni.Context
                     dbEntry.lastname = personne.lastname;
                     dbEntry.username = personne.username;
                     dbEntry.password = personne.password;
+                    dbEntry.email = personne.email;
+                    dbEntry.Role = personne.Role;
+                    dbEntry.Role1 = personne.Role1;
                 }
             }
             context.SaveChanges();

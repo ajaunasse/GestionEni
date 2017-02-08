@@ -31,9 +31,7 @@ namespace GestionEni.Context
                     dbEntry.libelle = formation.libelle;
                     dbEntry.description = formation.description;
                     dbEntry.Site1 = formation.Site1;
-                    dbEntry.Cursus1 = formation.Cursus1;
-                    dbEntry.Personne_Formation = formation.Personne_Formation;
-                    
+                    dbEntry.Cursus1 = formation.Cursus1;                    
  
                 }
             }

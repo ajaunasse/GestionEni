@@ -9,6 +9,7 @@ namespace GestionEni.Models
     [Table("Role")]
     public partial class Role
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Role()
         {
             Personne = new HashSet<Personne>();
@@ -21,6 +22,7 @@ namespace GestionEni.Models
         [StringLength(100)]
         public string libelle { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Personne> Personne { get; set; }
     }
 }

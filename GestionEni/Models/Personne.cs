@@ -4,24 +4,26 @@ namespace GestionEni.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity;
+    using System.Data.Entity.Spatial;
 
     [Table("Personne")]
     public partial class Personne
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Personne()
         {
-            Personne_Formation = new HashSet<Personne_Formation>();
+            Session = new HashSet<Session>();
+            Session1 = new HashSet<Session>();
         }
 
         [Key]
         public int IdPersonne { get; set; }
 
-        [Required(ErrorMessage = "Entrez votre Nom d'utilisateur")]
+        [Required]
         [StringLength(50)]
         public string username { get; set; }
 
-        [Required(ErrorMessage = "Entrez un mot de passe")]
+        [Required]
         [StringLength(50)]
         public string password { get; set; }
 
@@ -32,8 +34,6 @@ namespace GestionEni.Models
         public string firstname { get; set; }
 
         [StringLength(150)]
-        [Required(ErrorMessage = "Entrez votre Adresse Mail")]
-        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Rentrez un mail valide")]
         public string email { get; set; }
 
         public int Role { get; set; }
@@ -42,8 +42,12 @@ namespace GestionEni.Models
 
         public virtual Cursus Cursus1 { get; set; }
 
-        public virtual ICollection<Personne_Formation> Personne_Formation { get; set; }
-         
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Session> Session { get; set; }
+
         public virtual Role Role1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Session> Session1 { get; set; }
     }
 }

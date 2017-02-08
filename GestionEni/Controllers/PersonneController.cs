@@ -79,12 +79,13 @@ namespace GestionEni.Controllers
         [HttpPost]
         public ViewResult Edit(EditPersonneViewModel editpersonne)
         {
-            int i = 0;
                 if (ModelState.IsValid)
                 {
+
+                    repository.SavePersonne(editpersonne.Personne);
+                    editpersonne.Roles = repoRole.Roles;
+                    TempData["message"] = string.Format("Vos modifications ont été sauvegardées");
                     
-                    /*repository.SavePersonne();
-                    TempData["message"] = string.Format("{0} a été sauvegardé", product.Name);*/
                     return View(editpersonne);
                 }
                 else
@@ -99,25 +100,26 @@ namespace GestionEni.Controllers
 
         public ActionResult Delete(int id)
         {
+            repository.DeletePersonne(id);
             return View();
         }
 
         //
         // POST: /Personne/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        
+        /*[HttpPost]
+        public ActionResult Delete(int id)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                
                 return RedirectToAction("Index");
             }
             catch
             {
                 return View();
             }
-        }
+        }*/
     }
 }

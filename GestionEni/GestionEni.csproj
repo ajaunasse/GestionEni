@@ -123,6 +123,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IFormationRepository.cs" />
     <Compile Include="Abstract\IRoleRepository.cs" />
     <Compile Include="Abstract\IPersonneRepository.cs">
       <SubType>Code</SubType>
@@ -130,9 +131,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Context\EFFormationRepository.cs" />
     <Compile Include="Context\EFRoleRepository.cs" />
     <Compile Include="Context\EFPersonneRepository.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\FormationController.cs" />
     <Compile Include="Controllers\PersonneController.cs" />
     <Compile Include="Controllers\PlanningController.cs" />
     <Compile Include="fonts\WebApiConfig.cs" />
@@ -146,8 +149,8 @@
     <Compile Include="Models\Formation.cs" />
     <Compile Include="Context\EFDbContext.cs" />
     <Compile Include="Models\Personne.cs" />
-    <Compile Include="Models\Personne_Formation.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Site.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

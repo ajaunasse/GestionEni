@@ -11,7 +11,7 @@ namespace GestionEni.Models
     {
         public Formation()
         {
-            Personne_Formation = new HashSet<Personne_Formation>();
+            Session = new HashSet<Session>();
         }
 
         [Key]
@@ -29,8 +29,8 @@ namespace GestionEni.Models
 
         public virtual Cursus Cursus1 { get; set; }
 
-        public virtual Site Site1 { get; set; }
+        public virtual ICollection<Session> Session { get; set; }
 
-        public virtual ICollection<Personne_Formation> Personne_Formation { get; set; }
+        public virtual Site Site1 { get; set; }
     }
 }

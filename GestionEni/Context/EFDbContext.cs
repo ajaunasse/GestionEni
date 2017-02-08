@@ -1,23 +1,22 @@
-namespace GestionEni.Context
+namespace GestionEni.Models
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using GestionEni.Models;
 
     public partial class EFDbContext : DbContext
     {
         public EFDbContext()
-            : base("name=ModelGestionEni")
+            : base("name=GestionEni")
         {
         }
 
         public virtual DbSet<Cursus> Cursuss { get; set; }
         public virtual DbSet<Formation> Formations { get; set; }
         public virtual DbSet<Personne> Personnes { get; set; }
-        public virtual DbSet<Personne_Formation> Personne_Formations { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Session> Sessions { get; set; }
         public virtual DbSet<Site> Sites { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -32,6 +31,12 @@ namespace GestionEni.Context
                 .WithOptional(e => e.Cursus1)
                 .HasForeignKey(e => e.Cursus)
                 .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Formation>()
+                .HasMany(e => e.Session)
+                .WithRequired(e => e.Formation1)
+                .HasForeignKey(e => e.formation)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Personne>()
                 .Property(e => e.username)
@@ -53,10 +58,21 @@ namespace GestionEni.Context
                 .Property(e => e.email)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Personne>()
+                .HasMany(e => e.Session)
+                .WithRequired(e => e.Personne)
+                .HasForeignKey(e => e.formateur)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Role>()
                 .HasMany(e => e.Personne)
                 .WithRequired(e => e.Role1)
                 .HasForeignKey(e => e.Role);
+
+            modelBuilder.Entity<Session>()
+                .HasMany(e => e.Personne1)
+                .WithMany(e => e.Session1)
+                .Map(m => m.ToTable("Session_Stagiaires").MapLeftKey("IdSession").MapRightKey("IdStagiaire"));
 
             modelBuilder.Entity<Site>()
                 .Property(e => e.adresse)

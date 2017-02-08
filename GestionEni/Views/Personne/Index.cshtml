@@ -35,10 +35,10 @@
                        <a class="btn-floating btn blue">
                            <i class="material-icons">search</i>
                         </a> 
-                        <a class="btn-floating btn green">
+                        <a class="btn-floating btn green" href="@Url.Action("Edit", "Personne", new { id = p.IdPersonne })">
                             <i class="large material-icons">mode_edit</i>
                         </a>
-                        <a class="btn-floating btn red">
+                        <a class="btn-floating btn red" @Url.Action("Delete", "Personne", new { id = p.IdPersonne })>
                             <i class="material-icons">delete</i>
                         </a>
 
