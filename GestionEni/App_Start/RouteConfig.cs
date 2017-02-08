@@ -56,6 +56,21 @@ namespace GestionEni
                 url: "Admin/Personne/Edit/{id}",
                 defaults: new { controller = "Personne", action = "Edit", id = 2}
             );
+            routes.MapRoute(
+                name: "list_formation",
+                url: "Admin/Formation/Index",
+                defaults: new { controller = "Formation", action = "Index"}
+            );
+            routes.MapRoute(
+                name: "create_formation",
+                url: "Admin/Formation/Create",
+                defaults: new { controller = "Formation", action = "Create" }
+            );
+             routes.MapRoute(
+                name: "detail_formation",
+                url: "Admin/Formation/Detail/{id}",
+                defaults: new { controller = "Formation", action = "Details", id = 2 }
+            );
         }
     }
 }

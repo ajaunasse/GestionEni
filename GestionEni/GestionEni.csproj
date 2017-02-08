@@ -123,16 +123,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IRoleRepository.cs" />
+    <Compile Include="Abstract\ICursusRepository.cs" />
+    <Compile Include="Abstract\IFormationRepository.cs" />
     <Compile Include="Abstract\IPersonneRepository.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Abstract\IRoleRepository.cs" />
+    <Compile Include="Abstract\ISiteRepository.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Context\EFRoleRepository.cs" />
+    <Compile Include="Context\EFCursusRepository.cs" />
+    <Compile Include="Context\EFFormationRepository.cs" />
     <Compile Include="Context\EFPersonneRepository.cs" />
+    <Compile Include="Context\EFRoleRepository.cs" />
+    <Compile Include="Context\EFSiteRepository.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\FormationController.cs" />
     <Compile Include="Controllers\PersonneController.cs" />
     <Compile Include="Controllers\PlanningController.cs" />
     <Compile Include="fonts\WebApiConfig.cs" />
@@ -145,6 +152,7 @@
     <Compile Include="Models\EditPersonneViewModel.cs" />
     <Compile Include="Models\Formation.cs" />
     <Compile Include="Context\EFDbContext.cs" />
+    <Compile Include="Models\FormationViewModel.cs" />
     <Compile Include="Models\Personne.cs" />
     <Compile Include="Models\Personne_Formation.cs" />
     <Compile Include="Models\Role.cs" />
@@ -274,9 +282,10 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Personne\Create.cshtml" />
     <Content Include="Views\Personne\Index.cshtml" />
-    <Content Include="Views\Shared\header_admin.cshtml" />
-    <Content Include="Views\Personne\Edit.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\header_admin.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Views\Shared\NavBarFormateur.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -285,6 +294,10 @@
     </Content>
     <Content Include="Views\Shared\NavBarStagiaire.cshtml" />
     <Content Include="Views\Planning\Index.cshtml" />
+    <Content Include="Views\Formation\Index.cshtml" />
+    <Content Include="Views\Personne\Edit.cshtml" />
+    <Content Include="Views\Formation\Create.cshtml" />
+    <Content Include="Views\Formation\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

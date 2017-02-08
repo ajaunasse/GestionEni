@@ -1,0 +1,42 @@
+﻿@model GestionEni.Models.FormationViewModel
+
+@{
+    ViewBag.Title = "Ajout Formation";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h4 class="header">Création formation</h4>
+<hr />
+  <div class="row">
+    @using (Html.BeginForm())
+{   
+      <div class="alert alert-danger">@Html.ValidationSummary()</div>
+      <div class="row">
+        <div class="input-field col s6">
+            @Html.TextBoxFor(x => x.Formation.libelle, new { @class = "validate"})
+          <label for="first_name">Libelle</label>
+        </div>
+        <div class="input-field col s12">
+            @Html.TextAreaFor(x => x.Formation.description, new { @class = "materialize-textarea"})
+          <label for="last_name">Description</label>
+        </div>
+      </div>
+        <div class="row">
+        <div class="input-field col s12">
+                  @Html.DropDownListFor(x => x.Formation.Site , Model.SelectListSite)
+                <label>Site</label>
+              </div>
+        </div>
+      <div class="row">
+              <div class="input-field col s12">
+                  @Html.DropDownListFor(x => x.Formation.Cursus , Model.SelectListCursus)
+                <label>Cursus</label>
+              </div>
+      </div>
+          <button class="btn waves-effect waves-light green" type="submit" name="action">
+              <i class="material-icons right">send</i>
+              Créer
+        </button>
+    }  
+
+  </div>

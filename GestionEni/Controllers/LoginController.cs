@@ -26,23 +26,9 @@ namespace GestionEni.Controllers
 
             var login = Request["login"];
             var password = Request["password"];
-            var roleStagiaire = Request["stagiaire"];
-            var roleFormateur = Request["formateur"];
-            int role = 0 ;
-            if (roleStagiaire != null && roleStagiaire.Equals("on"))
-            {
-                role = 1 ;
-            }
-            else if (roleFormateur != null && roleFormateur.Equals("on"))
-            {
-                role = 2 ;
-            } else {
-
-            }
             personneCo = personneRepository.Personnes
                 .Where(p => p.username == login)
                 .Where(p => p.password == password)
-                .Where(p => p.Role == role)
                 .FirstOrDefault();
             if (personneCo != null)
             {

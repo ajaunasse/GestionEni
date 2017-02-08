@@ -12,13 +12,15 @@ namespace GestionEni.Controllers
     {
 
         private EFFormationRepository repository;
+        EFSiteRepository repoSite = new EFSiteRepository();
+        EFCursusRepository repoCursus = new EFCursusRepository();
 
         public ActionResult Index()
         {
             repository = new EFFormationRepository();
             IEnumerable<Formation> Formations = repository.Formations;
 
-            return View();
+            return View(Formations);
         }
 
         //
@@ -26,7 +28,9 @@ namespace GestionEni.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            repository = new EFFormationRepository();
+            Formation formation = repository.Formations.Where(f => f.IdFormation == id).FirstOrDefault();
+            return View(formation);
         }
 
         //
@@ -34,20 +38,27 @@ namespace GestionEni.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            FormationViewModel fVm = new FormationViewModel();
+            fVm.Cursus = repoCursus.Cursus;
+            fVm.Site = repoSite.Sites;
+
+            return View(fVm);
         }
 
         //
         // POST: /Formation/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ViewResult Create(FormationViewModel fVm)
         {
             try
             {
-                // TODO: Add insert logic here
+                Formation formation  = new Formation() ;
+   
+                repository = new EFFormationRepository();
+                repository.SaveFormation(fVm.Formation);
 
-                return RedirectToAction("Index");
+                return View();
             }
             catch
             {
