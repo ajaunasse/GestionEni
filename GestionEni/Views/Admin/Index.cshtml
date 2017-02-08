@@ -1,0 +1,11 @@
+﻿@{
+  
+    ViewBag.Title = "Personne";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+    GestionEni.Models.Personne personne = (GestionEni.Models.Personne)HttpContext.Current.Session["personneCo"]; 
+}
+<div class="app">
+    <div class="alert alert-success" role="alert">
+      <strong>Bienvenue @personne.lastname @personne.firstname!</strong> Vous vous êtes connectés correctement.
+    </div>
+</div>

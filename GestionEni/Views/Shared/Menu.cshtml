@@ -21,9 +21,19 @@
                 <li>
                     <a href="components.html">Nos sites</a>
                 </li>
+                @if(Session["personneCo"] == null)
+                {
                 <li>
                     <a href="@Url.RouteUrl("Login")">Se connecter</a>
                 </li>
+
+                }
+                else
+                {
+
+                    <a href="@Url.RouteUrl("Admin")">Accéder à mon espace</a>
+                }
+        
             </ul>
        </div>
    </div>

@@ -58,3 +58,33 @@ ul:not(.browser-default) li {
      display: none;
    }
 }
+
+
+.alert-success {
+    background-color: #4caf50;
+    border-color: #449d48;
+    color: #fff;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: .5rem;
+    border: 1px solid transparent;
+    border-radius: .125rem;
+    border: 0;
+    border-radius: 0;
+}
+.app {
+    margin-top: 50px;
+}
+
+	body {
+		margin: 40px 10px;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 14px;
+	}
+
+	#calendar {
+		max-width: 900px;
+		margin: 0 auto;
+	}
