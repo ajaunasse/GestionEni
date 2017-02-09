@@ -21,6 +21,11 @@ namespace GestionEni
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
             routes.MapRoute(
+                name: "Formation",
+                url: "Formation",
+                defaults: new { controller = "Home", action = "Formation", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
                 name: "Planning",
                 url: "Admin/Planning/Index",
                 defaults: new { controller = "Planning", action = "Index" }
@@ -71,6 +76,26 @@ namespace GestionEni
                 url: "Admin/Formation/Detail/{id}",
                 defaults: new { controller = "Formation", action = "Details", id = 2 }
             );
+             routes.MapRoute(
+                name: "list_cursus",
+                url: "Admin/Cursus/Index",
+                defaults: new { controller = "Cursus", action = "Index" }
+            );
+             routes.MapRoute(
+                name: "edit_cursus",
+                url: "Admin/Cursus/Edit/{id}",
+                defaults: new { controller = "Cursus", action = "Edit", id = UrlParameter.Optional }
+            );
+             routes.MapRoute(
+                name: "create_cursus",
+                url: "Admin/Cursus/Create",
+                defaults: new { controller = "Cursus", action = "Create"}
+            );
+             routes.MapRoute(
+                name: "del_cursus",
+                url: "Admin/Cursus/Delete/{id}",
+                defaults: new { controller = "Cursus", action = "Delete", id = 2 }
+                );
         }
     }
 }

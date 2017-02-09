@@ -49,20 +49,19 @@ namespace GestionEni.Controllers
         // POST: /Formation/Create
 
         [HttpPost]
-        public ViewResult Create(FormationViewModel fVm)
+        public ActionResult Create(FormationViewModel fVm)
         {
             try
             {
-                Formation formation  = new Formation() ;
    
                 repository = new EFFormationRepository();
                 repository.SaveFormation(fVm.Formation);
 
-                return View();
+                return RedirectToRoute("list_formation");
             }
             catch
             {
-                return View();
+                return RedirectToRoute("create_formation");
             }
         }
 

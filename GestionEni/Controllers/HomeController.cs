@@ -16,5 +16,10 @@ namespace GestionEni.Controllers
             return View();
         }
 
+        public ActionResult Formation()
+        {
+            return View();
+        }
+
     }
 }

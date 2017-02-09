@@ -5,6 +5,7 @@ namespace GestionEni.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Mvc;
 
     public partial class Cursus
     {
@@ -22,13 +23,14 @@ namespace GestionEni.Models
         [StringLength(150)]
         public string libelle { get; set; }
 
-        [StringLength(50)]
+        [AllowHtml]
         public string description { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public string niveauEtude { get; set; }
+
+
         public virtual ICollection<Formation> Formation { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Personne> Personne { get; set; }
     }
 }

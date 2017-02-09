@@ -1,0 +1,34 @@
+﻿@model GestionEni.Models.Cursus
+
+@{
+    ViewBag.Title = "Ajout Formation";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+<h4 class="header">Modification Cursus</h4>
+<hr />
+  <div class="row">
+    @using (Html.BeginForm())
+{    @Html.HiddenFor(x => x.IdCursus)
+      <div class="alert alert-danger">@Html.ValidationSummary()</div>
+      <div class="row">
+        <div class="input-field col s6">
+            @Html.TextBoxFor(x => x.libelle, new { @class = "validate"})
+          <label for="first_name">Libelle</label>
+        </div>
+         <div class="input-field col s6">
+            @Html.TextBoxFor(x => x.niveauEtude, new { @class = "validate"})
+          <label for="first_name">Niveau Etude</label>
+        </div>
+        <div class="input-field col s12">
+            @Html.TextAreaFor(x => x.description, new { @class = "materialize-textarea"})
+          <label for="last_name">Description</label>
+        </div>
+      </div>
+          <button class="btn waves-effect waves-light green" type="submit" name="action">
+              <i class="material-icons right">send</i>
+               Modifier
+        </button>
+    }  
+
+  </div>
+<script>tinymce.init({ selector:'textarea' });</script>

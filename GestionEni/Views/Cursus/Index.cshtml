@@ -1,0 +1,51 @@
+﻿@model IEnumerable<GestionEni.Models.Cursus>
+@{
+    ViewBag.Title = "Cursus";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+        <h4 class="header">Gestion des cursus
+             <a href="@Url.RouteUrl("create_cursus")" class="btn-floating btn waves-effect waves-light red right"><i class="material-icons">add</i></a>
+           </h4>
+        <hr />
+        
+          <table class="responsive-table">
+                <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>libelle</th>
+                      <th>Niveau</th>
+                      <th>Action</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    @if (Model != null &&  Model.Count() > 0)
+                    {
+                     foreach (GestionEni.Models.Cursus c in Model)
+                     {
+                  <tr>
+                    <td>@c.IdCursus</td>
+                    <td>@c.libelle</td>
+                    <td>@c.niveauEtude</td>
+                    <td>   
+                       <a class="btn-floating btn blue" href="#">
+                           <i class="material-icons">search</i>
+                        </a> 
+                        <a class="btn-floating btn green" href="@Url.RouteUrl("edit_cursus", new { id = c.IdCursus })">
+                            <i class="large material-icons">mode_edit</i>
+                        </a>
+                        <a class="btn-floating btn red" href="@Url.RouteUrl("del_cursus", new { id = c.IdCursus})">
+                            <i class="material-icons">delete</i>
+                        </a>
+
+                    </td>
+
+                  </tr>
+                     }
+                    } else {
+                        <tr><td colspan="4"> Aucun résultat</td>  </tr>
+                       
+                    }
+                </tbody>
+        </table>
