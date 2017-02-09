@@ -15,8 +15,14 @@ namespace GestionEni.Controllers
         
         public ActionResult Index()
         {
-
-            return View();
+            if (Request.Cookies["user"] == null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Admin");
+            }
         }
 
         [HttpPost]
