@@ -29,6 +29,7 @@ namespace GestionEni.Context
                 {
                     dbEntry.libelle = cursus.libelle;
                     dbEntry.description = cursus.description;
+                    dbEntry.niveauEtude = cursus.niveauEtude;
                 }
             }
             context.SaveChanges();
