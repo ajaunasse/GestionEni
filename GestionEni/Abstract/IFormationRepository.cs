@@ -9,7 +9,7 @@ namespace GestionEni.Abstract
     public interface IFormationRepository
     {
         IQueryable<Formation> Formations { get; }
-        void SaveFormation(Formation formation);
+        void SaveFormation(Formation formation);        
         Formation DeleteFormation(int formationID);
     }
 }

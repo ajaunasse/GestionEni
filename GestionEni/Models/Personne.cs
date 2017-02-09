@@ -9,7 +9,6 @@ namespace GestionEni.Models
     [Table("Personne")]
     public partial class Personne
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Personne()
         {
             Session = new HashSet<Session>();
@@ -42,12 +41,10 @@ namespace GestionEni.Models
 
         public virtual Cursus Cursus1 { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Session> Session { get; set; }
 
         public virtual Role Role1 { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Session> Session1 { get; set; }
     }
 }

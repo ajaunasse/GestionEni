@@ -138,6 +138,7 @@
     <Compile Include="Context\EFPersonneRepository.cs" />
     <Compile Include="Context\EFRoleRepository.cs" />
     <Compile Include="Context\EFSiteRepository.cs" />
+    <Compile Include="Context\FormsAuthProvider.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CursusController.cs" />
     <Compile Include="Controllers\FormationController.cs" />
