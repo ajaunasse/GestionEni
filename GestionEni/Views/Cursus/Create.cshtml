@@ -9,14 +9,17 @@
   <div class="row">
     @using (Html.BeginForm())
 {    @Html.HiddenFor(x => x.IdCursus)
-      <div class="alert alert-danger">@Html.ValidationSummary()</div>
+      if (!Html.ViewData.ModelState.IsValid)
+       {
+            <div class="alert alert-danger">@Html.ValidationSummary()</div>
+       }
       <div class="row">
         <div class="input-field col s6">
-            @Html.TextBoxFor(x => x.libelle, new { @class = "validate"})
+            @Html.TextBoxFor(x => x.libelle, new { @class = "validate" })
           <label for="first_name">Libelle</label>
         </div>
          <div class="input-field col s6">
-            @Html.TextBoxFor(x => x.niveauEtude, new { @class = "validate"})
+            @Html.TextBoxFor(x => x.niveauEtude, new { @class = "validate" })
           <label for="first_name">Niveau Etude</label>
         </div>
         <div class="col s12">

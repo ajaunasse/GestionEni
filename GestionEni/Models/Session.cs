@@ -11,7 +11,7 @@ namespace GestionEni.Models
     {
         public Session()
         {
-            Personne1 = new HashSet<Personne>();
+            Stagiaires1 = new HashSet<Personne>();
         }
 
         [Key]
@@ -32,8 +32,12 @@ namespace GestionEni.Models
 
         public virtual Formation Formation1 { get; set; }
 
-        public virtual Personne Personne { get; set; }
+        public virtual Personne Formateur1 { get; set; }
 
+<<<<<<< HEAD
         public virtual ICollection<Personne> Personne1 { get; set; }
+=======
+        public virtual ICollection<Personne> Stagiaires1 { get; set; }
+>>>>>>> origin/master
     }
 }

@@ -60,7 +60,7 @@ namespace GestionEni.Models
 
             modelBuilder.Entity<Personne>()
                 .HasMany(e => e.Session)
-                .WithRequired(e => e.Personne)
+                .WithRequired(e => e.Formateur1)
                 .HasForeignKey(e => e.formateur)
                 .WillCascadeOnDelete(false);
 
@@ -70,7 +70,7 @@ namespace GestionEni.Models
                 .HasForeignKey(e => e.Role);
 
             modelBuilder.Entity<Session>()
-                .HasMany(e => e.Personne1)
+                .HasMany(e => e.Stagiaires1)
                 .WithMany(e => e.Session1)
                 .Map(m => m.ToTable("Session_Stagiaires").MapLeftKey("IdSession").MapRightKey("IdStagiaire"));
 
