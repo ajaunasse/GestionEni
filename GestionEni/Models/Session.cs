@@ -9,7 +9,6 @@ namespace GestionEni.Models
     [Table("Session")]
     public partial class Session
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Session()
         {
             Personne1 = new HashSet<Personne>();
@@ -19,19 +18,22 @@ namespace GestionEni.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdSession { get; set; }
 
+        [Required(ErrorMessage = "Entrez une date de début")]
         public DateTime dateDebut { get; set; }
 
+        [Required(ErrorMessage = "Entrez une date de fin")]
         public DateTime dateFin { get; set; }
 
+        [Required(ErrorMessage = "Entrez un formateur")]
         public int formateur { get; set; }
 
+        [Required(ErrorMessage = "Entrez une formation")]
         public int formation { get; set; }
 
         public virtual Formation Formation1 { get; set; }
 
         public virtual Personne Personne { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Personne> Personne1 { get; set; }
     }
 }

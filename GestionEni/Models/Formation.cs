@@ -17,8 +17,8 @@ namespace GestionEni.Models
         [Key]
         public int IdFormation { get; set; }
 
-        [Required]
         [StringLength(200)]
+        [Required(ErrorMessage = "Entrez un libelle")]
         public string libelle { get; set; }
 
         public string description { get; set; }

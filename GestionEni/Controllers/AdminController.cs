@@ -30,6 +30,5 @@ namespace GestionEni.Controllers
             }
             return View();
         }
-
     }
 }

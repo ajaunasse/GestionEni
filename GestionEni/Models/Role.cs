@@ -17,8 +17,8 @@ namespace GestionEni.Models
         [Key]
         public int IdRole { get; set; }
 
-        [Required]
         [StringLength(100)]
+        [Required(ErrorMessage = "Entrez un libelle")]
         public string libelle { get; set; }
 
         public virtual ICollection<Personne> Personne { get; set; }

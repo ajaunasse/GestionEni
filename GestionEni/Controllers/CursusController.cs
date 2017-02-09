@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace GestionEni.Controllers
 {
+    [CustomAuthorize("Formateur")]
     public class CursusController : Controller
     {
         private EFCursusRepository repository = new EFCursusRepository();

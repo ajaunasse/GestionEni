@@ -34,8 +34,6 @@ namespace GestionEni.Controllers
             if (personneCo != null)
             {
                 Session["personneCo"] = personneCo;
-                personneCo.Cursus1 = null;
-                personneCo.Role1 = null;
                 var json = JsonConvert.SerializeObject(personneCo, 
                     new JsonSerializerSettings { 
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore

@@ -8,6 +8,8 @@ using System.Web.Mvc;
 
 namespace GestionEni.Controllers
 {
+
+    [CustomAuthorize("Formateur")]
     public class FormationController : Controller
     {
 

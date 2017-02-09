@@ -141,6 +141,7 @@
     <Compile Include="Context\FormsAuthProvider.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CursusController.cs" />
+    <Compile Include="Controllers\CustomAuthorizeAttribute.cs" />
     <Compile Include="Controllers\FormationController.cs" />
     <Compile Include="Controllers\PersonneController.cs" />
     <Compile Include="Controllers\PlanningController.cs" />
