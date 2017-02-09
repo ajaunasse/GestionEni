@@ -1,0 +1,70 @@
+﻿@model GestionEni.Models.SessionViewModel
+
+@{
+    Layout = "";
+}
+<h4 class="header">Ajout Session</h4>
+<hr />
+  <div class="row">
+    @using (Html.BeginForm())
+{      
+      if (!Html.ViewData.ModelState.IsValid)
+       {
+            <div class="alert alert-danger">@Html.ValidationSummary()</div>
+       }
+      <div class="row">
+        <div class="input-field col s12">
+            @Html.TextBoxFor(x => x.Session.dateDebut, new { @class = "datepicker", type = "date"  })
+          <label for="first_name">Date début</label>
+        </div>
+        <div class="input-field col s12">
+            @Html.TextBoxFor(x => x.Session.dateFin, new { @class = "datepicker",  type = "date"  })
+          <label for="last_name">Date Fin</label>
+        </div>
+      </div>
+        <div class="row">
+            <div class="input-field col s12">
+                  @Html.DropDownListFor(x => x.Session.Formateur1, Model.SelectFormateurs)
+                <label>Site</label>
+              </div>
+        </div>
+      <div class="row">
+              <div class="input-field col s12">
+                 @Html.TextBoxFor(x => x.formation.libelle, new { @class = "validate", disabled = "disabled" })
+                <label>Formation</label>
+              </div>
+      </div>
+        <div class="row">
+            <div class="input-field col s12">
+                    @Html.ListBoxFor(x => x.SelectedStagiaires,
+                    new MultiSelectList(Model.SelectStagiaires, "Value", "Text")
+                    , null)
+                <label>Stagiaires</label>
+              </div>
+        </div>
+
+          <button class="btn waves-effect waves-light green" type="submit" name="action">
+              <i class="material-icons right">send</i>
+              Créer
+        </button>
+    }  
+
+  </div>
+<script>
+      $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year
+        altField: "#datepicker",
+        closeText: 'Fermer',
+        prevText: 'Précédent',
+        nextText: 'Suivant',
+        currentText: 'Aujourd\'hui',
+        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+        dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+        weekHeader: 'Sem.',
+        dateFormat: 'yy-mm-dd'
+      })
+</script>

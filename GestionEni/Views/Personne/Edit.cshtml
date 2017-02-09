@@ -10,7 +10,10 @@
   <div class="row">
     @using (Html.BeginForm())
 {
-      <div class="alert alert-danger">@Html.ValidationSummary()</div>
+       if (!Html.ViewData.ModelState.IsValid)
+       {
+            <div class="alert alert-danger">@Html.ValidationSummary()</div>
+       }
       <div class="row">
         <div class="input-field col s6">
             @Html.TextBoxFor(x => x.Personne.firstname, new { @class = "validate"})

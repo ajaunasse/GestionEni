@@ -12,7 +12,7 @@ namespace GestionEni.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Session()
         {
-            Personne1 = new HashSet<Personne>();
+            Stagiaires1 = new HashSet<Personne>();
         }
 
         [Key]
@@ -29,9 +29,8 @@ namespace GestionEni.Models
 
         public virtual Formation Formation1 { get; set; }
 
-        public virtual Personne Personne { get; set; }
+        public virtual Personne Formateur1 { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Personne> Personne1 { get; set; }
+        public virtual ICollection<Personne> Stagiaires1 { get; set; }
     }
 }

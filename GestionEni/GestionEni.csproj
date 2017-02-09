@@ -129,6 +129,7 @@
     <Compile Include="Abstract\IPersonneRepository.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Abstract\ISessionRepository.cs" />
     <Compile Include="Abstract\ISiteRepository.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Context\EFFormationRepository.cs" />
     <Compile Include="Context\EFPersonneRepository.cs" />
     <Compile Include="Context\EFRoleRepository.cs" />
+    <Compile Include="Context\EFSessionRepository.cs" />
     <Compile Include="Context\EFSiteRepository.cs" />
     <Compile Include="Context\FormsAuthProvider.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -144,6 +146,7 @@
     <Compile Include="Controllers\FormationController.cs" />
     <Compile Include="Controllers\PersonneController.cs" />
     <Compile Include="Controllers\PlanningController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="fonts\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -158,6 +161,7 @@
     <Compile Include="Models\Personne.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\SessionViewModel.cs" />
     <Compile Include="Models\Site.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -389,6 +393,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Views\Session\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

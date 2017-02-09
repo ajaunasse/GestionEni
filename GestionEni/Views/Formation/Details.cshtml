@@ -28,17 +28,13 @@
   </tr>
   <tr>
     <th>Cursus</th>
-    <td>@Model.Cursus1.description </td>
+    <td>@Model.Cursus1.libelle </td>
   </tr>
 </table>
 
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+           @Html.Action("Create", "Session", new { formation = Model }) 
     </div>
   </div>
     <div id="modal3" class="modal bottom-sheet" style="z-index: 1003; display: none; opacity: 0; bottom: -100%;">
