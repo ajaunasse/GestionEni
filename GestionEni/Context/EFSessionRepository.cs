@@ -31,6 +31,7 @@ namespace GestionEni.Context
                     dbEntry.dateFin = session.dateFin;
                     dbEntry.Formation1 = session.Formation1;
                     dbEntry.formateur = session.formateur;
+                    dbEntry.Formateur1 = session.Formateur1;
                     dbEntry.Stagiaires1 = session.Stagiaires1;
                 }
             }

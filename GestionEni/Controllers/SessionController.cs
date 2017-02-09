@@ -5,13 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace GestionEni.Controllers
 {
     public class SessionController : Controller
     {
 
-        private EFSessionRepository repository = new EFSessionRepository();
+        private EFSessionRepository repository;
         EFFormationRepository repoFormation = new EFFormationRepository();
         EFPersonneRepository repoPersonne = new EFPersonneRepository();
 
@@ -37,8 +38,10 @@ namespace GestionEni.Controllers
         public ActionResult Create(Formation formation)
         {
             SessionViewModel sVm = new SessionViewModel();
+            sVm.Session =  new Session();
             sVm.Formateurs = repoPersonne.Personnes.Where(x => x.Role1.IdRole == 2);
-            sVm.formation = formation ;
+            sVm.Session.formation = formation.IdFormation;
+            sVm.Session.Formation1 = formation ;
             sVm.Stagiaires = repoPersonne.Personnes.Where(x => x.Role1.IdRole == 1);
 
             return View(sVm);
@@ -52,16 +55,17 @@ namespace GestionEni.Controllers
         {
             try
             {
-                sVm.Session.Formation1 = sVm.formation;
+                repository = new EFSessionRepository();
+                Session session = sVm.Session;
                 if (sVm.SelectedStagiaires != null)
                 {
                     foreach (var personneId in sVm.SelectedStagiaires)
                     {
                         Personne stag = repoPersonne.Personnes.Where(x => x.IdPersonne == personneId).First();
-                        sVm.Session.Stagiaires1.Add(stag);
+                        session.Stagiaires1.Add(stag);
                     }
                 }
-                repository.SaveSession(sVm.Session);
+                repository.SaveSession(session);
                 return RedirectToRoute("detail_formation", new { id = sVm.formation.IdFormation } );
             }
             catch

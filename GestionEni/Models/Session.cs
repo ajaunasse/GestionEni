@@ -15,7 +15,6 @@ namespace GestionEni.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdSession { get; set; }
 
         [Required(ErrorMessage = "Entrez une date de début")]

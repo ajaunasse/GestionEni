@@ -24,13 +24,14 @@
       </div>
         <div class="row">
             <div class="input-field col s12">
-                  @Html.DropDownListFor(x => x.Session.Formateur1, Model.SelectFormateurs)
-                <label>Site</label>
+                  @Html.DropDownListFor(x => x.Session.formateur, Model.SelectFormateurs)
+                <label>Formateur</label>
               </div>
         </div>
       <div class="row">
+                @Html.TextBoxFor(x => x.Session.formation, new { @class = "validate", type = "hidden" })
               <div class="input-field col s12">
-                 @Html.TextBoxFor(x => x.formation.libelle, new { @class = "validate", disabled = "disabled" })
+                 @Html.TextBoxFor(x => x.Session.Formation1.libelle, new { @class = "validate", disabled = "disabled" })
                 <label>Formation</label>
               </div>
       </div>
