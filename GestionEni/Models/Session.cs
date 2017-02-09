@@ -34,10 +34,6 @@ namespace GestionEni.Models
 
         public virtual Personne Formateur1 { get; set; }
 
-<<<<<<< HEAD
-        public virtual ICollection<Personne> Personne1 { get; set; }
-=======
         public virtual ICollection<Personne> Stagiaires1 { get; set; }
->>>>>>> origin/master
     }
 }
