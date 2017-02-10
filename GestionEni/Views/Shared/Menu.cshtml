@@ -10,9 +10,18 @@
                 <li>
                      <a href="@Url.RouteUrl("Site")">Nos sites</a>
                 </li>
-                <li>
-                    <a href="@Url.RouteUrl("Login")">Se connecter</a>
-                </li>
+                @if(Session["personneCo"] == null)
+                {
+                    <li>
+                        <a href="@Url.RouteUrl("Login")">Se connecter</a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="@Url.RouteUrl("Admin")">Accéder à mon espace</a>
+                     </li>
+                }
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li>
@@ -23,16 +32,15 @@
                 </li>
                 @if(Session["personneCo"] == null)
                 {
-                <li>
-                    <a href="@Url.RouteUrl("Login")">Se connecter</a>
-                </li>
-
+                    <li>
+                        <a href="@Url.RouteUrl("Login")">Se connecter</a>
+                    </li>
                 }
                 else
                 {
                     <li>
-                    <a href="@Url.RouteUrl("Admin")">Accéder à mon espace</a>
-                        </li>
+                        <a href="@Url.RouteUrl("Admin")">Accéder à mon espace</a>
+                     </li>
                 }
         
             </ul>
