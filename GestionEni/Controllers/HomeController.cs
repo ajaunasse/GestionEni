@@ -1,4 +1,5 @@
-﻿using GestionEni.Models;
+﻿using GestionEni.Context;
+using GestionEni.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ namespace GestionEni.Controllers
     {
         //
         // GET: /Home/
-
+        private EFCursusRepository repoCursus = new EFCursusRepository();
+        private EFSiteRepository repoSite = new EFSiteRepository();
         public ActionResult Index()
         {
             if (Request.Cookies["user"] != null)
@@ -26,7 +28,14 @@ namespace GestionEni.Controllers
 
         public ActionResult Formation()
         {
-            return View();
+            IEnumerable<Cursus> Cursus = repoCursus.Cursus;
+            return View(Cursus);
+        }
+
+        public ActionResult Site()
+        {
+            IEnumerable<Cursus> Cursus = repoCursus.Cursus;
+            return View(Cursus);
         }
 
     }

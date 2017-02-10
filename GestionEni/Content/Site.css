@@ -11,3 +11,23 @@ a.btn-large .material-icons {
 .app {
     margin-top: 50px;
 }
+.listFormation .card .card-content {
+    padding: 15px;
+    border-radius: 0 0 2px 2px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.card .card-content .card-title {
+    font-size: 20px;
+    font-weight: 300;
+    padding: 0;
+}
+#map {
+    width: 500px;
+    height: 500px;
+}
+#map2 {
+    width: 500px;
+    height: 500px;
+}

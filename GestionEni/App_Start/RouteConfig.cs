@@ -26,6 +26,11 @@ namespace GestionEni
                 defaults: new { controller = "Home", action = "Formation", id = UrlParameter.Optional }
             );
             routes.MapRoute(
+                name: "Site",
+                url: "Site",
+                defaults: new { controller = "Home", action = "Site", id = UrlParameter.Optional }
+);
+            routes.MapRoute(
                 name: "Planning",
                 url: "Admin/Planning/Index",
                 defaults: new { controller = "Planning", action = "Index" }

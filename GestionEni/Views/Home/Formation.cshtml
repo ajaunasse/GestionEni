@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<GestionEni.Models.Cursus>
+@{
     ViewBag.Title = "Formation";
 }
 <div class="container">
@@ -12,40 +13,29 @@
                Créée en 1981, ENI Ecole Informatique a acquis une renommée nationale dans la formation d'informaticiens. En contact permanent avec les entreprises du secteur numérique, les entreprises régionales et nationales, ENI Ecole Informatique propose ainsi à ses étudiants des formations techniques de qualité visant certes des diplômes mais aussi et surtout l'emploi. L'école est agréée par les éditeurs (Microsoft, Oracle, Cisco). 
             </p>
             </div>
-            <div class="col s12 center">
+            <div class="col s12 center listFormation">
                 <h3><i class="mdi-content-send brown-text"></i></h3>
                 <h4> Nos Cursus </h4>
                 <hr />
-                  <div class="col s12 m7">
-                    <h2 class="header">Horizontal Card</h2>
-                    <div class="card horizontal">
-                      <div class="card-image">
-                        <img src="http://lorempixel.com/100/190/nature/6">
-                      </div>
-                      <div class="card-stacked">
-                        <div class="card-content">
-                          <p>I am a very simple card. I am good at containing small bits of information.</p>
+                 @if (Model != null &&  Model.Count() > 0)
+                    {
+                     foreach (GestionEni.Models.Cursus c in Model)
+                     {
+                      <div class="col s12 m6">
+                        <div class="card formation">
+                            <div class="card-content">
+                             <span class="card-title libelle">@c.niveauEtude : @c.libelle</span>
+                                <hr />
+                               @Html.Raw(@c.description)
+                            </div>
+                          </div>
                         </div>
-                        <div class="card-action">
-                          <a href="#">This is a link</a>
-                        </div>
-                      </div>
-                    </div>
+                    }
+                 }
+                   
                 </div>
-                <ul>
-                    <li> Bac +2 : Développeur Logiciel</li>
-                    <li> Bac +2 : Technicien Supérieur en Réseaux informatiques</li>
-                    <li> Bac +2 : Technicien Supérieur de Support informatiques</li>
-                    <li> Bac +3 : Licence Informatique en alternance délivrée par le CNAM</li>
-                    <li> Bac +4 : Concepteur Développeur Informatique</li>
-                    <li> Bac +4 : Administrateur Système et Réseau</li>
-                    <li> Bac +5 : Manager des Systèmes d'Information et d'infrastructure OPTION SYSTÈMES D'INFORMATION</li>
-                    <li> Bac +5 : Manager des Systèmes d'Information et d'infrastructure OPTION INFRASTRUCTURE</li>
-                </ul>
             </div>
         </div>
-
-    </div>
 </div>
 
 
